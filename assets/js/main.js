@@ -1,8 +1,4 @@
-/*
-	Strata by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+
 
 (function($) {
 
@@ -114,4 +110,59 @@
 
 			});
 
+//contact form
+
+    // var $form = $('form#contact-me'),
+    //     url = 'https://script.google.com/macros/s/AKfycbxgGpHGuWv7YoLXj_Tu1qL7XtoCQSA4R_oh-lV7BJVk1-Zsf_6u/exec'
+	//
+    // $('#submit-form').on('click', function(e) {
+    //     e.preventDefault();
+    //     var jqxhr = $.ajax({
+    //         url: url,
+    //         method: "GET",
+    //         dataType: "json",
+    //         data: $form.serializeArray(),
+    //         success: function() {
+    //         console.log($form.serializeArray())
+    //         }
+    //     });
+    // })
+
 })(jQuery);
+
+//Skills-Canvas
+window.onload = function() {
+	$('#tags ul').css('visibility', 'visible');
+    var textCol = '#567B12';
+
+    if($('body').hasClass('white')){
+
+        textCol = '#00000' ;
+
+    }
+
+    try {
+        TagCanvas.Start('myCanvas','tags',{
+            textColour: textCol,
+            zoom:1.2,
+            outlineColour : '#fff',
+               outlineThickness : 0.5,
+               // outlineColour : '#fe0853',
+                maxSpeed : 0.06,
+                freezeActive:true,
+                shuffleTags:true,
+                shape:'sphere',
+                noSelect:true,
+                textFont:null,
+                pinchZoom:true,
+                freezeDecel:true,
+                fadeIn:3000,
+                initial: [0.3,-0.1],
+            reverse: true,
+            depth: 0.8
+        });
+    } catch(e) {
+        // something went wrong, hide the canvas container
+        document.getElementById('myCanvasContainer').style.display = 'none';
+    }
+};
